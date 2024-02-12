@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1';
-const dbURI = 'mongodb+srv://geoffnix:HotNix1969!@cluster0.fknjfgt.mongodb.net/travl?retryWrites=true&w=majority';
+const dbURI = `mongodb://${host}/travlr`;
 const readLine = require('readline');
 
 mongoose.set('useUnifiedTopology', true);
