@@ -45,5 +45,6 @@ const travelList = (req, res) => {
 }
 
 module.exports = {
-    travelList
+    travelList,
+    renderTravelList
 };
