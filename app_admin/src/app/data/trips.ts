@@ -29,5 +29,15 @@ export const trips =
     "perPerson": "1999.00",
     "image": "reef3.jpg",
     "description": "<p>At Claire...Donec sed felis risus. Nulla facilisi. Donec a orci tellus, et auctor odio. Fusce ac orci nibh, quis semper arcu. Cras orci neque, euismod et accumsan ac, sagittis molestie lorem. Proin odio sapien, elementum at tempor non.\n\n</p><p>At Claire...Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.</p>"
-}
+},
+      {
+        "code": "MBay210621",
+        "name": "Montego Bay",
+        "length": "4 nights/5 days",
+        "start": "2021-06-21T08:00:00Z",
+        "resort": "Sandals, 5 stars",
+        "perPerson": "2399.00",
+        "image": "montego_bay.jpeg",
+        "description": "<p>At Claire...Donec sed felis risus. Nulla facilisi. Donec a orci tellus, et auctor odio. Fusce ac orci nibh, quis semper arcu. Cras orci neque, euismod et accumsan ac, sagittis molestie lorem. Proin odio sapien, elementum at tempor non.\n\n</p><p>At Claire...Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.</p>"
+      }
 ]
