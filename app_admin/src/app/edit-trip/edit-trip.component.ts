@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TripData } from '../auth/tripData';
+import { TripData } from '../auth/tripData'
+
 
 @Component({
   selector: 'app-edit-trip',
@@ -17,11 +19,27 @@ export class EditTripComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private tripService: TripData
-  ) {}
+  ) {
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required]
+    });
+  }
+
 
   ngOnInit() {
+    // retrieve stashed tripId
+    let tripCode = localStorage.getItem("tripCode");
+    if (!tripCode) {
+      alert("Code unfound!");
+      this.router.navigate(['']);
+      return;
+    }
+    console.log('EditTripComponent#onInit found tripCode ' +
+      tripCode);
+    // initialize form
     this.form = this.formBuilder.group({
-      code: ['', Validators.required],
+      _id: [],
+      code: [tripCode, Validators.required],
       name: ['', Validators.required],
       length: ['', Validators.required],
       start: ['', Validators.required],
@@ -29,19 +47,15 @@ export class EditTripComponent implements OnInit {
       perPerson: ['', Validators.required],
       image: ['', Validators.required],
       description: ['', Validators.required],
-    });
+    })
 
-    let tripCode = localStorage.getItem("tripCode");
-    if (!tripCode) {
-      alert("Something wrong, couldn't find where I stashed tripCode!");
-      this.router.navigate(['']);
-      return;
-    }
+    console.log('EditTripComponent#onInit calling TripDataService#getTrip(\'' + tripCode + '\')');
 
     this.tripService.getTrip(tripCode)
       .then(data => {
+        console.log(data);
         this.form.patchValue(data[0]);
-      });
+      })
   }
 
   onSubmit() {
