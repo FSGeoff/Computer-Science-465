@@ -10,7 +10,8 @@ import { Auth } from '../models/auth';
 })
 export class TripData {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              @Inject('LOCAL_STORAGE') private localStorage: Storage) { }
 
   private apiBaseUrl = 'http://localhost:3000/api/';
   private tripUrl = `${this.apiBaseUrl}trips/`;
