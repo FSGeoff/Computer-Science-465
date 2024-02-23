@@ -1,0 +1,37 @@
+.center-form {
+  margin: 0 auto; /* Center the form horizontally */
+  max-width: 500px; /* Set maximum width for the form */
+  padding: 20px; /* Add padding around the form */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.center-form h2 {
+  text-align: center; /* Center the heading */
+  color: #007bff; /* Blue color for the heading */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Add spacing between form groups */
+}
+
+label {
+  color: #f90; /* Orange color for labels */
+}
+
+input[type="text"] {
+  width: 100%; /* Make text inputs full width */
+  padding: 8px; /* Add padding inside text inputs */
+  margin-top: 5px; /* Add spacing above text inputs */
+}
+
+.btn-info {
+  background-color: #007bff; /* Blue background color for the button */
+  color: #fff; /* White text color for the button */
+  padding: 8px 16px; /* Add padding to the button */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.btn-info:hover {
+  background-color: #0056b3; /* Darker blue color on button hover */
+}
