@@ -5,7 +5,8 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>Code:</label>
-      <input type="text" formControlName="code" placeholder="Code" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.get('code').errors }">
+      <input type="text" formControlName="code" placeholder="Code" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && form.get('code').errors }">
       <div *ngIf="submitted && form.get('code').errors">
         <div *ngIf="form.get('code').hasError('required')">
           Trip Code is required

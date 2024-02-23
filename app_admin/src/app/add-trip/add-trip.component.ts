@@ -33,7 +33,7 @@ export class AddTripComponent implements OnInit {
 
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
-      alert("Something wrong, couldn't find where I stashed tripCode!");
+      alert("Trip not found!");
       this.router.navigate(['']);
       return;
     }

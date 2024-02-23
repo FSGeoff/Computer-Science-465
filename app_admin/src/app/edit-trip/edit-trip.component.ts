@@ -30,7 +30,7 @@ export class EditTripComponent implements OnInit {
     // retrieve stashed tripId
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
-      alert("Code unfound!");
+      alert("Code not found!");
       this.router.navigate(['']);
       return;
     }
