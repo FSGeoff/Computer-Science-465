@@ -1,37 +1,39 @@
 .center-form {
-  margin: 0 auto; /* Center the form horizontally */
-  max-width: 500px; /* Set maximum width for the form */
-  padding: 20px; /* Add padding around the form */
-  background-color: #f9f9f9; /* Light background color */
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc; /* Add border around the form */
+  border-radius: 5px; /* Add rounded corners */
 }
 
 .center-form h2 {
-  text-align: center; /* Center the heading */
-  color: #007bff; /* Blue color for the heading */
+  text-align: center;
+  color: #007bff;
 }
 
 .form-group {
-  margin-bottom: 15px; /* Add spacing between form groups */
+  margin-bottom: 15px;
 }
 
 label {
-  color: #f90; /* Orange color for labels */
+  color: #f90;
 }
 
 input[type="text"] {
-  width: 100%; /* Make text inputs full width */
-  padding: 8px; /* Add padding inside text inputs */
-  margin-top: 5px; /* Add spacing above text inputs */
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
 }
 
 .btn-info {
-  background-color: #007bff; /* Blue background color for the button */
-  color: #fff; /* White text color for the button */
-  padding: 8px 16px; /* Add padding to the button */
-  border: none; /* Remove button border */
-  cursor: pointer; /* Show pointer cursor on hover */
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-info:hover {
-  background-color: #0056b3; /* Darker blue color on button hover */
+  background-color: #0056b3;
 }
