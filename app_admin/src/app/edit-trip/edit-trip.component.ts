@@ -3,7 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TripData } from '../auth/tripData'
-import './edit-trip.component.css'
+
 
 @Component({
   selector: 'app-edit-trip',
@@ -37,7 +37,7 @@ export class EditTripComponent implements OnInit {
     console.log('EditTripComponent#onInit found tripCode ' +
       tripCode);
     // initialize form
-    this.editForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       _id: [],
       code: [tripCode, Validators.required],
       name: ['', Validators.required],
@@ -54,14 +54,14 @@ export class EditTripComponent implements OnInit {
     this.tripService.getTrip(tripCode)
       .then(data => {
         console.log(data);
-        this.editForm.patchValue(data[0]);
+        this.form.patchValue(data[0]);
       })
   }
 
   onSubmit() {
     this.submitted = true;
-    if (this.editForm.valid) {
-      this.tripService.updateTrip(this.editForm.value)
+    if (this.form.valid) {
+      this.tripService.updateTrip(this.form.value)
         .then(data => {
           console.log(data);
           this.router.navigate(['']);
