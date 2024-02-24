@@ -1,26 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {TripData} from "../auth/tripData";
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
+import { TripData } from '../auth/tripData'
 
 @Component({
   selector: 'app-add-trip',
   templateUrl: './add-trip.component.html',
-  styleUrls: ['./add-trip.component.css']
+  styleUrls: ['./add-trip.component.css'],
 })
 export class AddTripComponent implements OnInit {
-
-  form: FormGroup;
-  submitted = false;
+  form: FormGroup
+  submitted = false
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private tripService: TripData
+    private tripService: TripData,
   ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      _id: [],
       code: ['', Validators.required],
       name: ['', Validators.required],
       length: ['', Validators.required],
@@ -29,33 +29,33 @@ export class AddTripComponent implements OnInit {
       perPerson: ['', Validators.required],
       image: ['', Validators.required],
       description: ['', Validators.required],
-    });
+    })
 
-    let tripCode = localStorage.getItem("tripCode");
+    let tripCode = localStorage.getItem('tripCode')
     if (!tripCode) {
-      alert("Trip not found!");
-      this.router.navigate(['']);
-      return;
+      alert('Trip not found!')
+      this.router.navigate([''])
+      return
     }
 
-    this.tripService.getTrip(tripCode)
-      .then(data => {
-        this.form.patchValue(data[0]);
-      });
+    this.tripService.getTrip(tripCode).then((data) => {
+      this.form.patchValue(data[0])
+    })
   }
 
   onSubmit() {
-    this.submitted = true;
+    this.submitted = true
     if (this.form.valid) {
-      this.tripService.updateTrip(this.form.value)
-        .then(data => {
-          console.log(data);
-          this.router.navigate(['']);
+      this.tripService
+        .updateTrip(this.form.value)
+        .then((data) => {
+          console.log(data)
+          this.router.navigate([''])
         })
-        .catch(error => {
-          console.error(error);
+        .catch((error) => {
+          console.error(error)
           // Handle error as needed
-        });
+        })
     }
   }
 }
