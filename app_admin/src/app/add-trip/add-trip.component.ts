@@ -30,32 +30,18 @@ export class AddTripComponent implements OnInit {
       image: ['', Validators.required],
       description: ['', Validators.required],
     })
-
-    let tripCode = localStorage.getItem('tripCode')
-    if (!tripCode) {
-      alert('Trip not found!')
-      this.router.navigate([''])
-      return
-    }
-
-    this.tripService.getTrip(tripCode).then((data) => {
-      this.form.patchValue(data[0])
-    })
   }
-
   onSubmit() {
     this.submitted = true
-    if (this.form.valid) {
-      this.tripService
-        .updateTrip(this.form.value)
-        .then((data) => {
-          console.log(data)
-          this.router.navigate([''])
-        })
-        .catch((error) => {
-          console.error(error)
-          // Handle error as needed
-        })
+    if (this.addForm.valid) {
+      this.tripService.addTrip(this.addForm.value).then((data) => {
+        console.log(data)
+        this.router.navigate([''])
+      })
     }
+  }
+  //get the form short name to access the form fields
+  get f() {
+    return this.addForm.controls
   }
 }
