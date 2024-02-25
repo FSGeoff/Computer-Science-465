@@ -20,14 +20,25 @@ export class TripDataService {
       .catch(this.handleError)
   }
 
-  public getTrips(): Promise<Trip[]> {
-    console.log('Inside TripDataService#getTrips')
+  public getTrip(tripCode: string): Promise<Trip[]> {
+    console.log('Inside TripDataService#getTrip(tripCode)')
     return this.http
-      .get(`${this.tripUrl}`)
+      .get(this.tripUrl + tripCode)
       .toPromise()
       .then((response) => response.json() as Trip[])
       .catch(this.handelError)
   }
+
+  public updateTrip(formData: Trip): Promise<Trip> {
+    console.log('Inside TripDataService#updateTrip')
+    console.log(formData)
+    return this.http
+      .put(this.tripUrl + formData.code, formData)
+      .toPromise()
+      .then((response) => response.json() as Trip[])
+      .catch(this.handleError)
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('Something has gone wrong', error)
     return Promise.reject(error.message || error)
