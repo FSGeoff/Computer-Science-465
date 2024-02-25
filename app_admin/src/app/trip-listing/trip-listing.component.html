@@ -7,7 +7,9 @@
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 </style>
-
+<div>
+  <button (click)="addTrip()" class="btn btn-info">Add Trip</button>
+</div>
 <div class="row">
   <div class="card-deck">
     <div *ngFor="let trip of trips" class="col-12 col-md-4 mt-2 card"> <!-- Adjust col-lg-4 to col-md-4 for 3 cards in a row -->
