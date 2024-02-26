@@ -7,7 +7,7 @@
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 </style>
-<div>
+<div *ngIf="isLoggedIn()">
   <button (click)="addTrip()" class="btn btn-info">Add Trip</button>
 </div>
 <div class="row">
