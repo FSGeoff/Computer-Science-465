@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { TripData } from '../auth/tripData'
+import { TripDataService } from '../services/trip-data.service'
 
 @Component({
   selector: 'app-add-trip',
@@ -9,17 +9,17 @@ import { TripData } from '../auth/tripData'
   styleUrls: ['./add-trip.component.css'],
 })
 export class AddTripComponent implements OnInit {
-  form: FormGroup
+  addForm: FormGroup
   submitted = false
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private tripService: TripData,
+    private tripService: TripDataService,
   ) {}
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
+    this.addForm = this.formBuilder.group({
       _id: [],
       code: ['', Validators.required],
       name: ['', Validators.required],
