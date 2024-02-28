@@ -61,7 +61,4 @@ export class EditTripComponent implements OnInit {
       })
     }
   }
-  get f() {
-    return this.addForm.controls
-  }
 }
